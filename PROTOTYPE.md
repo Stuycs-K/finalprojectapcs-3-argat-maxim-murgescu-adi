@@ -8,6 +8,8 @@ Nice To Haves: The ability to press down / press space to make the piece drop fa
 
 # UML Diagram
 
+![Alt text](Diagram1.jpg?raw=true "Diagram of UML" ) 
+
 # Development Phases
 
 Phase 1:
