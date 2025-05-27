@@ -23,9 +23,30 @@ public class Piece
   public Piece(Piece original) // creates a clone of the piece, this one is moved / manipulated
   {
     shape = new int[4][];
-    for(int y = 0; y < 4; y++)
+    for(int y = 0; y < shape.length; y++)
     {
       shape[y] = original.shape[y].clone();
     }
+  }
+  
+  
+  public boolean checkCollision()
+  {
+    for(int y = 0; y < shape.length; y++)
+    {
+      for(int x = 0; x < shape[y].length; x++)
+      {
+        if(y + posy >= 20)
+        {
+          return true; // fell off bottom
+        }
+        if(shape[y][x] != 0 && map[y + posy][x + posx] != 0)
+        {
+          return true; // is inside another placed piece
+        }
+      }
+    }
+    
+    return false;
   }
 }
