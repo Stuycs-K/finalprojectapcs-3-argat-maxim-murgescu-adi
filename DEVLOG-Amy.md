@@ -2,10 +2,10 @@
 
 This document must be updated daily every time you finish a work session.
 
-## Amy Smith CHANGE THE NAME FOOL!
+## Adi Murgescu
 
-### 2024-01-02 - Brief description
-Expanded description including how much time was spent on task.
+### 2025-05-19/20 - Working on prototype
+Both class periods working together to write up prototype.
 
-### 2024-01-03 - Brief description
-Expanded description including how much time was spent on task.
+### 2025-05-27 - Wrote version of readMe
+Entire clas period: wrote project description, as much of description of UI so far. Started converting UML diagram to actual online editor instead of on paper version.
