@@ -1,7 +1,11 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/YxXKqIeT)
 # Project Description
 
-lorem ipsum.
+Our project is a working a version of Tetris. It features all of the tetromino pieces and includes as much of the original game's behavior as we could. The user can cycle through the pieces, rotate them, and aim to stop the board from filling to the top by completing full rows of blocks.
+
+The MVP includes the ability to move and rotate pieces on the game area, to place them down, and for the game to then check if it should clear a line. If the line is filled, it shifts everything above it down, and adds some amount of score. It would then deal out the next piece, endlessly. If you stack pieces up to the top of the board, the game ends. 
+
+Update with features we may/aim to add beyond MVP: The ability to press down / press space to make the piece drop faster / instantly, official recognition of how the pieces need to rotate, particles when you clear a line. The game would also speed up as you gain score for added challenge. Special effects when the player clears a line, and features to make the game more convinent to play such as little particles falling and fading away when lines are cleared, that are the colors of the tiles that are removed.
 
 # Intended usage:
 
