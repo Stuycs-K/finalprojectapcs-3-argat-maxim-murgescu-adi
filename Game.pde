@@ -38,10 +38,14 @@ void keyPressed()
     if (keyCode == LEFT)
     {
       currentPiece.posx--;
+      if(currentPiece.checkCollision())
+        currentPiece.posx++;
     } 
     else if (keyCode == RIGHT)
     {
       currentPiece.posx++;
+      if(currentPiece.checkCollision())
+        currentPiece.posx--;
     }
   }
 }

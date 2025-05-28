@@ -37,7 +37,7 @@ public class Piece
       for(int x = 0; x < shape[y].length; x++)
       {
         if(shape[y][x] != 0){
-        if(y + posy >= 20)
+        if(y + posy >= 20 || (x + posx) < 0 || (x + posx) >= 10)
         {
           return true; // fell off bottom
         }
