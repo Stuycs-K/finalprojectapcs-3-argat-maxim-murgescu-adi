@@ -8,6 +8,7 @@ Nice To Haves: The ability to press down / press space to make the piece drop fa
 
 # UML Diagram
 
+link to online UML: https://lucid.app/lucidchart/c4417686-7792-40be-879b-64b6f793d10a/edit?viewport_loc=314%2C598%2C1364%2C607%2C0_0&invitationId=inv_c8fefc8b-837a-4318-bd8a-1366da6c893e
 ![Alt text](Diagram1.jpg?raw=true "Diagram of UML" ) 
 
 # Development Phases
