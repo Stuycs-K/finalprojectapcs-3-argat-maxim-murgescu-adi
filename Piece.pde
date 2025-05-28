@@ -36,14 +36,15 @@ public class Piece
     {
       for(int x = 0; x < shape[y].length; x++)
       {
+        if(shape[y][x] != 0){
         if(y + posy >= 20)
         {
           return true; // fell off bottom
         }
-        if(shape[y][x] != 0 && map[y + posy][x + posx] != 0)
+        if(map[y + posy][x + posx] != 0)
         {
           return true; // is inside another placed piece
-        }
+        }}
       }
     }
     

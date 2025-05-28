@@ -1,3 +1,6 @@
+color[] colors = new color[]{color(50, 50, 50), color(225, 225, 20)};
+
+
 void drawMap()
 {
   for(int y = 0; y < 20; y++)
@@ -6,7 +9,7 @@ void drawMap()
     {
       fill(25);
       rect(30 + x * 40, 25 + y * 40, 40, 40);
-      fill(50);
+      fill(colors[map[y][x]]);
       rect(31 + x * 40, 26 + y * 40, 39, 39);
     }
   }

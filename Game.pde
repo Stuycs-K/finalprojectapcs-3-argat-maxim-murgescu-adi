@@ -3,7 +3,7 @@ public Piece[] pieces;
 public Piece currentPiece;
 public int[][] map = new int[20][10];
 
-public int gravityTime = 30;
+public int gravityTime = 15;
 public int gravityCount = 0;
 
 void setup()
