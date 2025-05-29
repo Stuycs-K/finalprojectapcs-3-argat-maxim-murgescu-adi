@@ -14,16 +14,16 @@ link to online UML: https://lucid.app/lucidchart/c4417686-7792-40be-879b-64b6f79
 # Development Phases
 
 Phase 1:
-~ Create game area (20 x 10), make it display the different pieces and their colors ~
-~ After you press space, it deals out a piece ~
-~ That piece can be moved sideways, drops due to gravity ~
-~ The piece stops after it hits the ground and cannot go off the edges of the area ~
+~~Create game area (20 x 10), make it display the different pieces and their colors~~
+~~After you press space, it deals out a piece~~
+~~That piece can be moved sideways, drops due to gravity~~
+~~The piece stops after it hits the ground and cannot go off the edges of the area~~
 
 Phase 2:
-~ Piece rotations (probably by changing the array that defines the shape of the piece inside of the Piece instance) ~
+~~Piece rotations (probably by changing the array that defines the shape of the piece inside of the Piece instance)~~
 - The piece 'kicks back' if rotated into somewhere according to official Tetris rules
 - The piece doesn't rotate if no kickback makes sense
-~ Line clears, shifts whatever is above it down ~
+~~Line clears, shifts whatever is above it down~~
 - Ability to quickly drop the piece
 - The game detects when you've stacked too high, does nothing yet
 
