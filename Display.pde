@@ -25,12 +25,17 @@ void drawPiece(Piece piece)
 {
   if(piece == null)
     return;
-  for(int y = 0; y < 4; y++)
+    
+  int[][] shape = piece.shape();  
+  
+  
+  
+  for(int y = 0; y < shape.length; y++)
   {
-    for(int x = 0; x < 4; x++)
+    for(int x = 0; x < shape[y].length; x++)
     {
-      if(piece.shape[y][x] == 0)
-        continue; // random comment added so that the file is different when i commit
+      if(shape[y][x] == 0)
+        continue;
       fill(200);
       rect(30 + (x + piece.posx) * 40, 25 + (y + piece.posy) * 40, 40, 40);
       fill(250);
