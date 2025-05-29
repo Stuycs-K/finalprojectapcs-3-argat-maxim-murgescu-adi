@@ -12,3 +12,5 @@ Entire class period: wrote project description, as much of description of UI so 
 
 ### 2025-05-28 - UML, merge conflict
 Half class-period: Finished UML in online editor, with updated structure. Dealt with merge conflict, pulling issues.
+
+### 2025-05-28 - 
