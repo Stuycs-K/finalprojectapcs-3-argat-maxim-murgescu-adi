@@ -48,8 +48,15 @@ void keyPressed()
       if(currentPiece.checkCollision())
         currentPiece.posx--;
     }
+    
+    else if (keyCode == UP)
+    {
+      currentPiece.tryRotate();
+    }
   }
 }
+
+
 
 void tick()
 {

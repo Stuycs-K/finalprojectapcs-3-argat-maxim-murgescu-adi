@@ -49,7 +49,15 @@ public class Piece
   
   public int[][] shape()
   {
-    return shapes[0];
+    whichrot = whichrot % 4;
+    return shapes[whichrot];
+  }
+  
+  public void tryRotate()
+  {
+    whichrot++;
+    if(checkCollision())
+      whichrot--;
   }
 }
 
