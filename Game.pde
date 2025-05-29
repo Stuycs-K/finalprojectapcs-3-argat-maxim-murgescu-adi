@@ -1,7 +1,7 @@
-public Piece[] pieces;
+// this file handles gameplay and input processing, main game loop
 
+public Piece[] pieces;
 public Piece currentPiece;
-public int[][] map = new int[20][10];
 
 public int gravityTime = 15;
 public int gravityCount = 0;
@@ -72,22 +72,8 @@ void tick()
     {
       // place piece
       currentPiece.posy--;
-      applyPiece(currentPiece);
+      currentPiece.applyPiece();
       currentPiece = null;
     }
   }
 }
-
-void applyPiece(Piece piece)
-{
-    for(int y = 0; y < piece.shape().length; y++)
-    {
-      for(int x = 0; x < piece.shape()[y].length; x++)
-      {
-        if(piece.shape()[y][x] != 0)
-        {
-          map[y + piece.posy][x + piece.posx] = piece.shape()[y][x];
-        }
-      }
-    }
-  }

@@ -59,6 +59,23 @@ public class Piece
     if(checkCollision())
       whichrot--;
   }
+  
+  public void applyPiece()
+  {
+    int[][] shape = shape();
+    for(int y = 0; y < shape.length; y++)
+    {
+      for(int x = 0; x < shape[y].length; x++)
+      {
+        if(shape[y][x] != 0)
+        {
+          map[y + posy][x + posx] = shape[y][x];
+        }
+      }
+    }
+    
+    checkLines();
+  }
 }
 
 void makeShapes()
