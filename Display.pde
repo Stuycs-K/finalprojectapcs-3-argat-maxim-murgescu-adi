@@ -17,6 +17,8 @@ void drawMap()
 
 void drawUI()
 {
+  fill(0);
+  // add text with updated score on top every frame
   rect(460, 25, 310, 100);
   rect(460, 150, 310, 300);
 }
