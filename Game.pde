@@ -9,7 +9,8 @@ public int gravityCount = 0;
 void setup()
 {
   size(800, 850);
-  pieces = new Piece[]{jpiece, lpiece, spiece, zpiece, tpiece, opiece, ipiece};
+  makeShapes();
+  //pieces = new Piece[]{jpiece, lpiece, spiece, zpiece, tpiece, opiece, ipiece};
 }
 
 void draw()
@@ -28,7 +29,7 @@ void keyPressed()
 {
   if(key == ' ' & currentPiece == null)
   {
-    currentPiece = new Piece(pieces[(int)(Math.random() * 7)]);
+    currentPiece = new Piece(pieces[(int)(Math.random())]);
   }
   if(currentPiece == null)
   {
@@ -72,13 +73,13 @@ void tick()
 
 void applyPiece(Piece piece)
 {
-    for(int y = 0; y < piece.shape.length; y++)
+    for(int y = 0; y < piece.shape().length; y++)
     {
-      for(int x = 0; x < piece.shape[y].length; x++)
+      for(int x = 0; x < piece.shape()[y].length; x++)
       {
-        if(piece.shape[y][x] != 0)
+        if(piece.shape()[y][x] != 0)
         {
-          map[y + piece.posy][x + piece.posx] = piece.shape[y][x];
+          map[y + piece.posy][x + piece.posx] = piece.shape()[y][x];
         }
       }
     }
