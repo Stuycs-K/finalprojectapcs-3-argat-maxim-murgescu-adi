@@ -76,6 +76,16 @@ public class Piece
     
     checkLines();
   }
+  
+  public void hardDrop()
+  {
+    while(!checkCollision())
+    {
+      posy++;
+    }
+    posy--;
+    applyPiece();
+  }
 }
 
 void makeShapes()

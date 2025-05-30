@@ -31,6 +31,7 @@ void keyPressed()
   if(key == ' ' & currentPiece == null)
   {
     currentPiece = new Piece(pieces[(int)(Math.random() * 7)]);
+    return;
   }
   if(currentPiece == null)
   {
@@ -65,6 +66,13 @@ void keyPressed()
       {
         gravityCount = 0;
       }
+    }
+  }
+  else
+  {
+    if(key == ' ')
+    {
+      currentPiece.hardDrop();
     }
   }
 }
