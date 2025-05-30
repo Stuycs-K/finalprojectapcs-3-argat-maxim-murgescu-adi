@@ -54,6 +54,18 @@ void keyPressed()
     {
       currentPiece.tryRotate();
     }
+    else if(keyCode == DOWN)
+    {
+      currentPiece.posy++;
+      if(currentPiece.checkCollision())
+      {
+        currentPiece.posy--;
+      }
+      else
+      {
+        gravityCount = 0;
+      }
+    }
   }
 }
 
