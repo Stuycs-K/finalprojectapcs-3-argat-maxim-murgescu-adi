@@ -63,12 +63,139 @@ public class Piece
 
 void makeShapes()
 {
-  pieces = new Piece[1];
-  // j shape (blue)
-  int[][] rot1 = {{1, 0, 0},{1, 1, 1},{0, 0, 0}};
-  int[][] rot2 = {{0, 1, 1},{0, 1, 0},{0, 1, 0}};
-  int[][] rot3 = {{0, 0, 0},{1, 1, 1},{0, 0, 1}};
-  int[][] rot4 = {{0, 1, 0},{0, 1, 0},{1, 1, 0}};
+  pieces = new Piece[7];
+  // j shape (1:blue)
+  int[][] rot1J = {{1, 0, 0},{1, 1, 1},{0, 0, 0}};
+  int[][] rot2J = {{0, 1, 1},{0, 1, 0},{0, 1, 0}};
+  int[][] rot3J = {{0, 0, 0},{1, 1, 1},{0, 0, 1}};
+  int[][] rot4J = {{0, 1, 0},{0, 1, 0},{1, 1, 0}};
     
-  pieces[0] = new Piece("J", new int[][][]{rot1, rot2, rot3, rot4});
+  pieces[0] = new Piece("J", new int[][][]{rot1J, rot2J, rot3J, rot4J});
+  
+   // L shape (2:orange)
+  int[][] rot1L = {
+    {0, 0, 2},
+    {2, 2, 2},
+    {0, 0, 0}
+  };
+  int[][] rot2L = {
+    {0, 2, 0},
+    {0, 2, 0},
+    {0, 2, 2}
+  };
+  int[][] rot3L = {
+    {0, 0, 0},
+    {2, 2, 2},
+    {2, 0, 0}
+  };
+  int[][] rot4L = {
+    {2, 2, 0},
+    {0, 2, 0},
+    {0, 2, 0}
+  };
+  pieces[1] = new Piece("L", new int[][][]{rot1L, rot2L, rot3L, rot4L});
+  
+  // T shape (3:purple)
+  int[][] rot1T = {
+    {0, 3, 0},
+    {3, 3, 3},
+    {0, 0, 0}
+  };
+  int[][] rot2T = {
+    {0, 3, 0},
+    {0, 3, 3},
+    {0, 3, 0}
+  };
+  int[][] rot3T = {
+    {0, 0, 0},
+    {3, 3, 3},
+    {0, 3, 0}
+  };
+  int[][] rot4T = {
+    {0, 3, 0},
+    {3, 3, 0},
+    {0, 3, 0}
+  };
+  pieces[2] = new Piece("T", new int[][][]{rot1T, rot2T, rot3T, rot4T});
+
+  // O shape (4:yellow)
+  int[][] rot1O = {
+    {0, 0, 0},
+    {0, 4, 4},
+    {0, 4, 4}
+  };
+  pieces[3] = new Piece("O", new int[][][]{rot1O, rot1O, rot1O, rot1O});
+
+  // I shape (5:cyan)
+  int[][] rot1I = {
+    {0, 0, 0, 0},
+    {5, 5, 5, 5},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0}
+  };
+  int[][] rot2I = {
+    {0, 0, 5, 0},
+    {0, 0, 5, 0},
+    {0, 0, 5, 0},
+    {0, 0, 5, 0}
+  };
+  int[][] rot3I = {
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {5, 5, 5, 5},
+    {0, 0, 0, 0}
+  };
+  int[][] rot4I = {
+    {0, 5, 0, 0},
+    {0, 5, 0, 0},
+    {0, 5, 0, 0},
+    {0, 5, 0, 0}
+  };
+  pieces[4] = new Piece("I", new int[][][]{rot1I, rot2I, rot3I, rot4I});
+
+  // S shape (6:green)
+  int[][] rot1S = {
+    {0, 6, 6},
+    {6, 6, 0},
+    {0, 0, 0}
+  };
+  int[][] rot2S = {
+    {0, 6, 0},
+    {0, 6, 6},
+    {0, 0, 6}
+  };
+  int[][] rot3S = {
+    {0, 0, 0},
+    {0, 6, 6},
+    {6, 6, 0}
+  };
+  int[][] rot4S = {
+    {6, 0, 0},
+    {6, 6, 0},
+    {0, 6, 0}
+  };
+  pieces[5] = new Piece("S", new int[][][]{rot1S, rot2S, rot3S, rot4S});
+
+  // Z shape (7:red)
+  int[][] rot1Z = {
+    {7, 7, 0},
+    {0, 7, 7},
+    {0, 0, 0}
+  };
+  int[][] rot2Z = {
+    {0, 0, 7},
+    {0, 7, 7},
+    {0, 7, 0}
+  };
+  int[][] rot3Z = {
+    {0, 0, 0},
+    {7, 7, 0},
+    {0, 7, 7}
+  };
+  int[][] rot4Z = {
+    {0, 7, 0},
+    {7, 7, 0},
+    {7, 0, 0}
+  };
+  pieces[6] = new Piece("Z", new int[][][]{rot1Z, rot2Z, rot3Z, rot4Z});  
 }
