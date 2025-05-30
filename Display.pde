@@ -1,4 +1,4 @@
-color[] colors = new color[]{color(50, 50, 50), color(20, 20, 225)};
+color[] colors = new color[]{color(50, 50, 50), color(20, 20, 225), color(244, 140, 6), color(157, 78, 221), color(255, 221, 0), color(69, 221, 240), color(171, 225, 79), color(239, 35, 60)};
 
 
 void drawMap()

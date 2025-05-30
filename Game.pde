@@ -8,6 +8,7 @@ public int gravityCount = 0;
 
 void setup()
 {
+  colorMode(RGB, 255, 255, 255);
   size(800, 850);
   makeShapes();
   //pieces = new Piece[]{jpiece, lpiece, spiece, zpiece, tpiece, opiece, ipiece};
