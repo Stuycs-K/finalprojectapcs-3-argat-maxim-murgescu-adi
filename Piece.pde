@@ -63,12 +63,36 @@ public class Piece
 
 void makeShapes()
 {
-  pieces = new Piece[1];
-  // j shape (blue)
-  int[][] rot1 = {{1, 0, 0},{1, 1, 1},{0, 0, 0}};
-  int[][] rot2 = {{0, 1, 1},{0, 1, 0},{0, 1, 0}};
-  int[][] rot3 = {{0, 0, 0},{1, 1, 1},{0, 0, 1}};
-  int[][] rot4 = {{0, 1, 0},{0, 1, 0},{1, 1, 0}};
+  pieces = new Piece[7];
+  // j shape (1:blue)
+  int[][] rot1J = {{1, 0, 0},{1, 1, 1},{0, 0, 0}};
+  int[][] rot2J = {{0, 1, 1},{0, 1, 0},{0, 1, 0}};
+  int[][] rot3J = {{0, 0, 0},{1, 1, 1},{0, 0, 1}};
+  int[][] rot4J = {{0, 1, 0},{0, 1, 0},{1, 1, 0}};
     
-  pieces[0] = new Piece("J", new int[][][]{rot1, rot2, rot3, rot4});
+  pieces[0] = new Piece("J", new int[][][]{rot1J, rot2J, rot3J, rot4J});
+  
+   // L shape (2:orange)
+  int[][] rot1L = {
+    {0, 0, 2},
+    {2, 2, 2},
+    {0, 0, 0}
+  };
+  int[][] rot2L = {
+    {0, 2, 0},
+    {0, 2, 0},
+    {0, 2, 2}
+  };
+  int[][] rot3L = {
+    {0, 0, 0},
+    {2, 2, 2},
+    {2, 0, 0}
+  };
+  int[][] rot4L = {
+    {2, 2, 0},
+    {0, 2, 0},
+    {0, 2, 0}
+  };
+  pieces[1] = new Piece("L", new int[][][]{ rot1L, rot2L, rot3L, rot4L });
+  
 }
