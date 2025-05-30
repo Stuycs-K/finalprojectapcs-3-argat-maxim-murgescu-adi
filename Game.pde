@@ -73,6 +73,7 @@ void keyPressed()
     if(key == ' ')
     {
       currentPiece.hardDrop();
+      currentPiece = null;
     }
   }
 }
@@ -96,5 +97,5 @@ void tick()
       currentPiece.applyPiece();
       currentPiece = null;
     }
-  }
+  } 
 }

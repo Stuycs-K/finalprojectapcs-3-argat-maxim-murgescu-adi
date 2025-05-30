@@ -13,7 +13,7 @@ public class Piece
   public int col = 1; // 1 is o yellow
   public int[][][] shapes;
   public int whichrot = 0;
-  public int posx;
+  public int posx = 3;
   public int posy;
   
   public Piece(String name, int[][][] shapes)

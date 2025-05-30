@@ -23,7 +23,7 @@ void checkLines() // starting from bottom, checks all lines to see if they are c
         map[i] = map[i-1];
       }
       map[0] = new int[10];
-      row--;
+      row++;
     }
   }
 }
