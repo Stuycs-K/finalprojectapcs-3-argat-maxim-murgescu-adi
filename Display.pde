@@ -1,4 +1,4 @@
-color[] colors = new color[]{color(50, 50, 50), color(225, 225, 20)};
+color[] colors = new color[]{color(50, 50, 50), color(20, 20, 225)};
 
 
 void drawMap()
@@ -38,7 +38,7 @@ void drawPiece(Piece piece)
         continue;
       fill(200);
       rect(30 + (x + piece.posx) * 40, 25 + (y + piece.posy) * 40, 40, 40);
-      fill(250);
+      fill(colors[shape[y][x]]);
       rect(31 + (x + piece.posx) * 40, 26 + (y + piece.posy) * 40, 39, 39);
     }
   }
