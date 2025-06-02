@@ -2,8 +2,9 @@
 
 public Piece[] pieces;
 public Piece currentPiece;
+public Piece holdPiece;
 
-public int gravityTime = 15;
+public int gravityTime = 20;
 public int gravityCount = 0;
 
 void setup()
@@ -66,6 +67,25 @@ void keyPressed()
       {
         gravityCount = 0;
       }
+    }
+    else if(keyCode == SHIFT)
+    {
+      if(true) // if allowed to do this
+      {
+        Piece temp = currentPiece;
+        currentPiece = holdPiece;
+        holdPiece = temp;
+        
+        holdPiece.posx = 3;
+        holdPiece.posy = 0;
+        holdPiece.whichrot = 0;
+        
+        if(currentPiece == null)
+        {
+          currentPiece = new Piece(dealPiece());
+        }
+      }
+      
     }
   }
   else

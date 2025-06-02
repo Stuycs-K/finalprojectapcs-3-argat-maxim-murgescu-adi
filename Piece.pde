@@ -14,7 +14,7 @@ public class Piece
   public int[][][] shapes;
   public int whichrot = 0;
   public int posx = 3;
-  public int posy;
+  public int posy = 0;
   
   public Piece(String name, int[][][] shapes)
   {
