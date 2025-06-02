@@ -79,6 +79,7 @@ public class Piece
       }
     }
     canHold = true;
+    pieceDealWait = 30;
     checkLines();
   }
   

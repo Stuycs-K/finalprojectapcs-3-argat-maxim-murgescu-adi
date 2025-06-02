@@ -112,13 +112,20 @@ void keyPressed()
   }
 }
 
-
+int pieceDealWait;
 
 void tick()
 {
+  
   if(currentPiece == null)
   {
-    currentPiece = new Piece(dealPiece());
+    if(pieceDealWait <= 0)
+      currentPiece = new Piece(dealPiece());
+    else
+    {
+      pieceDealWait--;
+      return;
+    }
   }
     
   gravityCount++;
