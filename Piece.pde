@@ -95,6 +95,14 @@ public class Piece
     score += 2 * (posy - origpos);
     applyPiece();
   }
+  
+  public boolean graceCheck() // returns true if a piece is about to place
+  {
+    posy++;
+    boolean r = checkCollision();
+    posy--;
+    return r;
+  }
 }
 
 void makeShapes()
@@ -178,5 +186,6 @@ Piece dealPiece() // returns the next piece, removes it out of the bag, makes a 
   
   Piece dealed = currBag[bagindex];
   bagindex++;
+  gracePeriod = 0;
   return dealed;
 }

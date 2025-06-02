@@ -60,12 +60,16 @@ void keyPressed()
       currentPiece.posx--;
       if(currentPiece.checkCollision())
         currentPiece.posx++;
+      if(gracePeriod != 0)
+        gracePeriod = 30;
     } 
     else if (keyCode == RIGHT)
     {
       currentPiece.posx++;
       if(currentPiece.checkCollision())
         currentPiece.posx--;
+      if(gracePeriod != 0)
+        gracePeriod = 30;
     }
     
     else if (keyCode == UP)
@@ -117,6 +121,7 @@ void keyPressed()
 }
 
 int pieceDealWait;
+int gracePeriod;
 
 void tick()
 {
@@ -131,7 +136,23 @@ void tick()
       return;
     }
   }
-    
+  
+  if(gracePeriod > 0)
+  {
+    // grace period behavior
+    gracePeriod--;
+    if(gracePeriod == 0)
+    {
+      currentPiece.applyPiece();
+    }
+    else if(!currentPiece.graceCheck())
+    {
+      gracePeriod = 0;
+      gravityCount = 0;
+    }
+  }
+  else
+  {
   gravityCount++;
   if(gravityCount >= gravityTime)
   {
@@ -144,7 +165,12 @@ void tick()
       currentPiece.applyPiece();
       currentPiece = null;
     }
+    else if(currentPiece.graceCheck())
+    {
+      gracePeriod = 30;
+    }
   } 
+  }
 }
 
 int getLevel()
