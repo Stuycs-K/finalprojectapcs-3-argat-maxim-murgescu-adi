@@ -21,6 +21,28 @@ void drawUI()
   // add text with updated score on top every frame
   rect(460, 25, 310, 100);
   rect(460, 150, 310, 300);
+  
+  fill(255);
+  textSize(28);
+  text("HOLD:", 525, 75);
+  
+  if(holdPiece != null)
+  {
+    int[][] shape = holdPiece.shape();  
+  
+    for(int y = 0; y < shape.length; y++)
+    {
+      for(int x = 0; x < shape[y].length; x++)
+      {
+        if(shape[y][x] == 0)
+          continue;
+        fill(200);
+        rect(650 + (x) * 20, 50 + (y) * 20, 20, 20);
+        fill(colors[shape[y][x]]);
+        rect(651 + (x) * 20, 51 + (y) * 20, 19, 19);
+      }
+    }
+  }
 }
 
 void drawPiece(Piece piece)
