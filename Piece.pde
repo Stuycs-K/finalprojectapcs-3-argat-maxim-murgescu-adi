@@ -73,7 +73,7 @@ public class Piece
         }
       }
     }
-    
+    canHold = true;
     checkLines();
   }
   

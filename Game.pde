@@ -7,6 +7,8 @@ public Piece holdPiece;
 public int gravityTime = 20;
 public int gravityCount = 0;
 
+boolean canHold = true;
+
 void setup()
 {
   colorMode(RGB, 255, 255, 255);
@@ -70,8 +72,9 @@ void keyPressed()
     }
     else if(keyCode == SHIFT)
     {
-      if(true) // if allowed to do this
+      if(canHold) // if allowed to do this
       {
+        canHold = false;
         Piece temp = currentPiece;
         currentPiece = holdPiece;
         holdPiece = temp;
