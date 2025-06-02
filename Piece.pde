@@ -14,7 +14,7 @@ public class Piece
   public int[][][] shapes;
   public int whichrot = 0;
   public int posx = 3;
-  public int posy = 0;
+  public int posy = -1;
   
   public Piece(String name, int[][][] shapes)
   {
@@ -33,7 +33,7 @@ public class Piece
     {
       for(int x = 0; x < shape()[y].length; x++)
       {
-        if(shape()[y][x] != 0){
+        if(shape()[y][x] != 0 & y + posy >= 0){
         if(y + posy >= 20 || (x + posx) < 0 || (x + posx) >= 10)
         {
           return true; // fell off bottom
@@ -69,6 +69,11 @@ public class Piece
       {
         if(shape[y][x] != 0)
         {
+          if(y + posy < 0)
+          {
+            gameStatus = 2;
+            return;
+          }
           map[y + posy][x + posx] = shape[y][x];
         }
       }

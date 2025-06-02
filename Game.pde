@@ -9,6 +9,8 @@ public int gravityCount = 0;
 
 boolean canHold = true;
 
+public int gameStatus = 0; // 0 - before first piece, 1 - normal, 2 - after losing
+
 void setup()
 {
   colorMode(RGB, 255, 255, 255);
@@ -19,21 +21,30 @@ void setup()
 
 void draw()
 {
+  background(170);
   drawMap();
   drawUI();
   
   // do logic for key repeating here, later
   
-  tick();
+  if(gameStatus == 1)
+    tick();
+  else if(gameStatus == 2)
+  {
+    textSize(64);
+    fill(235, 20, 20);
+    text("You Lost!", 490, 600);
+  }
   
   drawPiece(currentPiece);
 }
 
 void keyPressed()
 {
-  if(key == ' ' & currentPiece == null)
+  if(key == ' ' & gameStatus == 0)
   {
     currentPiece = new Piece(dealPiece());
+    gameStatus = 1;
     return;
   }
   if(currentPiece == null)
@@ -80,7 +91,7 @@ void keyPressed()
         holdPiece = temp;
         
         holdPiece.posx = 3;
-        holdPiece.posy = 0;
+        holdPiece.posy = -1;
         holdPiece.whichrot = 0;
         
         if(currentPiece == null)
@@ -106,7 +117,9 @@ void keyPressed()
 void tick()
 {
   if(currentPiece == null)
-    return;
+  {
+    currentPiece = new Piece(dealPiece());
+  }
     
   gravityCount++;
   if(gravityCount >= gravityTime)

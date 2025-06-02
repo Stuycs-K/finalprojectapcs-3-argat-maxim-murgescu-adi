@@ -58,7 +58,7 @@ void drawPiece(Piece piece)
   {
     for(int x = 0; x < shape[y].length; x++)
     {
-      if(shape[y][x] == 0)
+      if(shape[y][x] == 0 | y + piece.posy < 0)
         continue;
       fill(200);
       rect(30 + (x + piece.posx) * 40, 25 + (y + piece.posy) * 40, 40, 40);
