@@ -25,6 +25,7 @@ void drawUI()
   fill(255);
   textSize(28);
   text("HOLD:", 525, 75);
+  text("Score: " + score, 500, 200);
   
   if(holdPiece != null)
   {

@@ -7,6 +7,8 @@ public Piece holdPiece;
 public int gravityTime = 20;
 public int gravityCount = 0;
 
+public int score;
+
 boolean canHold = true;
 
 public int gameStatus = 0; // 0 - before first piece, 1 - normal, 2 - after losing

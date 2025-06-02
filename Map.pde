@@ -24,6 +24,7 @@ void checkLines() // starting from bottom, checks all lines to see if they are c
       }
       map[0] = new int[10];
       row++;
+      score += 100;
     }
   }
 }
