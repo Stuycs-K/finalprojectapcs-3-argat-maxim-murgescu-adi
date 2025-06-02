@@ -1,13 +1,19 @@
+// this file handles gameplay and input processing, main game loop
+
 public Piece[] pieces;
-
 public Piece currentPiece;
-public int[][] map = new int[20][10];
+public Piece holdPiece;
 
-public int gravityTime = 15;
+public int gravityTime = 20;
 public int gravityCount = 0;
+
+boolean canHold = true;
+
+public int gameStatus = 0; // 0 - before first piece, 1 - normal, 2 - after losing
 
 void setup()
 {
+  colorMode(RGB, 255, 255, 255);
   size(800, 850);
   makeShapes();
   //pieces = new Piece[]{jpiece, lpiece, spiece, zpiece, tpiece, opiece, ipiece};
@@ -15,21 +21,31 @@ void setup()
 
 void draw()
 {
+  background(170);
   drawMap();
   drawUI();
   
   // do logic for key repeating here, later
   
-  tick();
+  if(gameStatus == 1)
+    tick();
+  else if(gameStatus == 2)
+  {
+    textSize(64);
+    fill(235, 20, 20);
+    text("You Lost!", 490, 600);
+  }
   
   drawPiece(currentPiece);
 }
 
 void keyPressed()
 {
-  if(key == ' ' & currentPiece == null)
+  if(key == ' ' & gameStatus == 0)
   {
-    currentPiece = new Piece(pieces[(int)(Math.random())]);
+    currentPiece = new Piece(dealPiece());
+    gameStatus = 1;
+    return;
   }
   if(currentPiece == null)
   {
@@ -53,15 +69,64 @@ void keyPressed()
     {
       currentPiece.tryRotate();
     }
+    else if(keyCode == DOWN)
+    {
+      currentPiece.posy++;
+      if(currentPiece.checkCollision())
+      {
+        currentPiece.posy--;
+      }
+      else
+      {
+        gravityCount = 0;
+      }
+    }
+    else if(keyCode == SHIFT)
+    {
+      if(canHold) // if allowed to do this
+      {
+        canHold = false;
+        Piece temp = currentPiece;
+        currentPiece = holdPiece;
+        holdPiece = temp;
+        
+        holdPiece.posx = 3;
+        holdPiece.posy = -1;
+        holdPiece.whichrot = 0;
+        
+        if(currentPiece == null)
+        {
+          currentPiece = new Piece(dealPiece());
+        }
+      }
+      
+    }
+  }
+  else
+  {
+    if(key == ' ')
+    {
+      currentPiece.hardDrop();
+      currentPiece = null;
+    }
   }
 }
 
-
+int pieceDealWait;
 
 void tick()
 {
+  
   if(currentPiece == null)
-    return;
+  {
+    if(pieceDealWait <= 0)
+      currentPiece = new Piece(dealPiece());
+    else
+    {
+      pieceDealWait--;
+      return;
+    }
+  }
     
   gravityCount++;
   if(gravityCount >= gravityTime)
@@ -72,22 +137,8 @@ void tick()
     {
       // place piece
       currentPiece.posy--;
-      applyPiece(currentPiece);
+      currentPiece.applyPiece();
       currentPiece = null;
     }
-  }
+  } 
 }
-
-void applyPiece(Piece piece)
-{
-    for(int y = 0; y < piece.shape().length; y++)
-    {
-      for(int x = 0; x < piece.shape()[y].length; x++)
-      {
-        if(piece.shape()[y][x] != 0)
-        {
-          map[y + piece.posy][x + piece.posx] = piece.shape()[y][x];
-        }
-      }
-    }
-  }
