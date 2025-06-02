@@ -26,7 +26,7 @@ void drawUI()
   textSize(28);
   text("HOLD:", 525, 75);
   text("Score: " + score, 500, 200);
-  
+  text("Level: " + getLevel(), 500, 240);
   if(holdPiece != null)
   {
     int[][] shape = holdPiece.shape();  

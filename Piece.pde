@@ -85,11 +85,14 @@ public class Piece
   
   public void hardDrop()
   {
+    int origpos = posy;
     while(!checkCollision())
     {
       posy++;
     }
     posy--;
+    
+    score += 2 * (posy - origpos);
     applyPiece();
   }
 }

@@ -8,6 +8,7 @@ public int gravityTime = 20;
 public int gravityCount = 0;
 
 public int score;
+public int[] levels = {2500, 6000, 11000, 19000, 28000, 40000, 55000, 72000, 91000, 113000, 137000, 165000, 200000, 250000, 325000, 450000, 550000, 700000};
 
 boolean canHold = true;
 
@@ -81,6 +82,7 @@ void keyPressed()
       else
       {
         gravityCount = 0;
+        score++;
       }
     }
     else if(keyCode == SHIFT)
@@ -143,4 +145,17 @@ void tick()
       currentPiece = null;
     }
   } 
+}
+
+int getLevel()
+{
+  int l = 1;
+  for(int i = 0; i < levels.length; i++)
+  {
+    if(score > levels[i])
+      l++;
+    else
+      return l;
+  }
+  return l;
 }

@@ -29,7 +29,7 @@ void checkLines() // starting from bottom, checks all lines to see if they are c
     }
   }
   if(linescleared > 0)
-    score += (linescleared * 200) - 100;
+    score += (linescleared * 200 - 100) * getLevel();
   if(linescleared == 4)
-    score += 100;
+    score += 100 * getLevel();
 }
