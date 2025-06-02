@@ -30,7 +30,7 @@ void keyPressed()
 {
   if(key == ' ' & currentPiece == null)
   {
-    currentPiece = new Piece(pieces[(int)(Math.random() * 7)]);
+    currentPiece = new Piece(dealPiece());
     return;
   }
   if(currentPiece == null)

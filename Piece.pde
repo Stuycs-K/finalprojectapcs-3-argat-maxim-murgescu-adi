@@ -118,11 +118,9 @@ void makeShapes()
   pieces[3] = new Piece("O", new int[][][]{rot1O, rot1O, rot1O, rot1O});
 
   // I shape (5:cyan)
-  int[][] rot1I = {{0, 0, 0, 0},{5, 5, 5, 5},{0, 0, 0, 0},{0, 0, 0, 0}};
-  int[][] rot2I = {{0, 0, 5, 0},{0, 0, 5, 0},{0, 0, 5, 0},{0, 0, 5, 0}};
-  int[][] rot3I = {{0, 0, 0, 0},{0, 0, 0, 0},{5, 5, 5, 5},{0, 0, 0, 0}};
-  int[][] rot4I = {{0, 5, 0, 0},{0, 5, 0, 0},{0, 5, 0, 0},{0, 5, 0, 0}};
-  pieces[4] = new Piece("I", new int[][][]{rot1I, rot2I, rot3I, rot4I});
+  int[][] rot1I = {{0, 0, 0, 0},{5, 5, 5, 5},{0, 0, 0, 0}};
+  int[][] rot2I = {{0, 5, 0},{0, 5, 0},{0, 5, 0},{0, 5, 0}};
+  pieces[4] = new Piece("I", new int[][][]{rot1I, rot2I, rot1I, rot2I});
 
   // S shape (6:green)
   int[][] rot1S = {{0, 6, 6},{6, 6, 0},{0, 0, 0}};
@@ -137,4 +135,39 @@ void makeShapes()
   int[][] rot3Z = {{0, 0, 0},{7, 7, 0},{0, 7, 7}};
   int[][] rot4Z = {{0, 7, 0},{7, 7, 0},{7, 0, 0}};
   pieces[6] = new Piece("Z", new int[][][]{rot1Z, rot2Z, rot3Z, rot4Z}); 
+}
+
+Piece[] newBag()
+{
+  Piece[] bag = new Piece[7];
+  for(int i = 0; i < 7; i++)
+  {
+    boolean placed = false;
+    while(!placed)
+    {
+      int toindex = (int)(Math.random() * 7);
+      if(bag[toindex] == null)
+      {
+        placed = true;
+        bag[toindex] = pieces[i];
+      }
+    }
+  }
+  return bag;
+}
+
+Piece[] currBag;
+int bagindex = 0;
+
+Piece dealPiece() // returns the next piece, removes it out of the bag, makes a new bag if needed
+{
+  if(bagindex > 6 | currBag == null)
+  {
+    bagindex = 0;
+    currBag = newBag();
+  }
+  
+  Piece dealed = currBag[bagindex];
+  bagindex++;
+  return dealed;
 }
