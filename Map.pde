@@ -2,6 +2,7 @@ public int[][] map = new int[20][10];
 
 void checkLines() // starting from bottom, checks all lines to see if they are complete. If they are, shifts rest of the map down (new arr for top row)
 {
+  int linescleared = 0;
   for(int row = 19; row >= 0; row--)
   {
     boolean empty = false;
@@ -24,7 +25,11 @@ void checkLines() // starting from bottom, checks all lines to see if they are c
       }
       map[0] = new int[10];
       row++;
-      score += 100;
+      linescleared++;
     }
   }
+  if(linescleared > 0)
+    score += (linescleared * 200) - 100;
+  if(linescleared == 4)
+    score += 100;
 }
