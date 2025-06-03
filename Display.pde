@@ -1,6 +1,6 @@
 color[] colors = new color[]{color(50, 50, 50), color(20, 20, 225), color(244, 140, 6), color(157, 78, 221), color(255, 221, 0), color(69, 221, 240), color(171, 225, 79), color(239, 35, 60)};
 
-
+boolean doDebug = true;
 void drawMap()
 {
   for(int y = 0; y < 20; y++)
@@ -25,7 +25,8 @@ void drawUI()
   fill(255);
   textSize(28);
   text("HOLD:", 525, 75);
-  
+  text("Score: " + score, 500, 200);
+  text("Level: " + getLevel(), 500, 240);
   if(holdPiece != null)
   {
     int[][] shape = holdPiece.shape();  
@@ -42,6 +43,11 @@ void drawUI()
         rect(651 + (x) * 20, 51 + (y) * 20, 19, 19);
       }
     }
+  }
+  if(doDebug)
+  {
+  fill(200, 200, 20);
+  text("Grace Period: " + gracePeriod, 500, 280);
   }
 }
 
