@@ -34,9 +34,20 @@ public class Piece
       for(int x = 0; x < shape()[y].length; x++)
       {
         if(shape()[y][x] != 0 & y + posy >= 0){
-        if(y + posy >= 20 || (x + posx) < 0 || (x + posx) >= 10)
+        if(y + posy >= 20)
         {
           return true; // fell off bottom
+        }
+        else if(x + posx < 0)
+        {
+           // off left side
+           xoff_vel -= 4;
+           return true;
+        }
+        else if(x + posx >= 10)
+        {
+           xoff_vel += 4;
+           return true;
         }
         if(map[y + posy][x + posx] != 0)
         {
@@ -94,6 +105,7 @@ public class Piece
     
     score += 2 * (posy - origpos);
     applyPiece();
+    yoff_vel += 5;
   }
   
   public boolean graceCheck() // returns true if a piece is about to place

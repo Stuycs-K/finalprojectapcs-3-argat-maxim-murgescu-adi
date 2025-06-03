@@ -24,6 +24,7 @@ void setup()
 void draw()
 {
   background(170);
+  displayTick();
   drawMap();
   drawUI();
   
