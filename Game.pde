@@ -155,7 +155,7 @@ void tick()
   else
   {
   gravityCount++;
-  if(gravityCount >= gravityTime)
+  if(gravityCount >= gravities[getLevel()-1])
   {
     gravityCount = 0;
     currentPiece.posy++;
