@@ -176,5 +176,4 @@ Piece dealPiece() // returns the next piece, removes it out of the bag, makes a 
   Piece dealed = currBag[bagindex];
   bagindex++;
   return dealed;
->>>>>>> e73f13bc3fdbd1e801c030a3e722a053f287c823
 }
