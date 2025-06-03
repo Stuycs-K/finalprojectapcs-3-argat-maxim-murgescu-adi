@@ -18,3 +18,6 @@ Corrected the way we handle rotations, by having all possible rotations accounte
 
 ### 2025-06-02 - MVP
 Sick, but tested updated version basically MVP.
+
+### 2025-06-03 - Levels, gravity of pieces
+Added feature of game speeding up with different levels, continued testing.
