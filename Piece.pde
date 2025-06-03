@@ -85,12 +85,23 @@ public class Piece
   
   public void hardDrop()
   {
+    int origpos = posy;
     while(!checkCollision())
     {
       posy++;
     }
     posy--;
+    
+    score += 2 * (posy - origpos);
     applyPiece();
+  }
+  
+  public boolean graceCheck() // returns true if a piece is about to place
+  {
+    posy++;
+    boolean r = checkCollision();
+    posy--;
+    return r;
   }
 }
 
@@ -163,6 +174,7 @@ Piece[] newBag()
 }
 
 Piece[] currBag;
+Piece[] nextBag;
 int bagindex = 0;
 
 Piece dealPiece() // returns the next piece, removes it out of the bag, makes a new bag if needed
@@ -170,10 +182,24 @@ Piece dealPiece() // returns the next piece, removes it out of the bag, makes a 
   if(bagindex > 6 | currBag == null)
   {
     bagindex = 0;
-    currBag = newBag();
+    currBag = nextBag;
+    nextBag = newBag();
+    if(currBag == null)
+    {
+      currBag = nextBag;
+      nextBag = newBag();
+    }
   }
   
   Piece dealed = currBag[bagindex];
   bagindex++;
+  gracePeriod = 0;
   return dealed;
+}
+
+Piece peekPiece() // this is infrastructure to allow the player to see the next piece. I don't yet know if we want this.
+{
+  if(bagindex < 6)
+    return currBag[bagindex + 1];
+  return nextBag[0];
 }
