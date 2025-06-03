@@ -4,12 +4,11 @@ public Piece[] pieces;
 public Piece currentPiece;
 public Piece holdPiece;
 
-public int gravityTime = 20;
+public int gravityTime = 30;
 public int gravityCount = 0;
 
 public int score;
-public int[] levels = {2500, 6000, 11000, 19000, 28000, 40000, 55000, 72000, 91000, 113000, 137000, 165000, 200000, 250000, 325000, 450000, 550000, 700000};
-
+public int[] levels = {2500, 6000, 11000, 19000, 28000, 40000, 55000, 72000, 91000, 113000, 137000, 165000, 200000, 250000, 325000, 450000, 550000, 800000};
 boolean canHold = true;
 
 public int gameStatus = 0; // 0 - before first piece, 1 - normal, 2 - after losing
