@@ -15,3 +15,6 @@ Half class-period: Finished UML in online editor, with updated structure. Dealt 
 
 ### 2025-05-29 - Rotation of Pieces
 Corrected the way we handle rotations, by having all possible rotations accounted for in a 3d array. Easier to deal with and abide by rotation nuances due to piece geometry.
+
+### 2025-06-02 - MVP
+Sick, but tested updated version basically MVP.
