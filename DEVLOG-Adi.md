@@ -13,4 +13,5 @@ Entire class period: wrote project description, as much of description of UI so 
 ### 2025-05-28 - UML, merge conflict
 Half class-period: Finished UML in online editor, with updated structure. Dealt with merge conflict, pulling issues.
 
-### 2025-05-28 - 
+### 2025-05-29 - Rotation of Pieces
+Corrected the way we handle rotations, by having all possible rotations accounted for in a 3d array. Easier to deal with and abide by rotation nuances due to piece geometry.
