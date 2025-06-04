@@ -7,8 +7,11 @@ public Piece holdPiece;
 public int gravityTime = 30;
 public int gravityCount = 0;
 
-public int score;
+// MAKE SURE TO ADD: keystrokes to jump levels
+public int score = 54500;
 public int[] levels = {2500, 6000, 11000, 19000, 28000, 40000, 55000, 72000, 91000, 113000, 137000, 165000, 200000, 250000, 325000, 450000, 550000, 800000};
+
+public int[] gravities = {40, 35, 31, 28, 24, 21, 19, 17, 15, 13, 12, 11, 10, 9, 8, 7, 6, 5};
 boolean canHold = true;
 
 public int gameStatus = 0; // 0 - before first piece, 1 - normal, 2 - after losing
@@ -24,6 +27,7 @@ void setup()
 void draw()
 {
   background(170);
+  displayTick();
   drawMap();
   drawUI();
   
@@ -74,7 +78,7 @@ void keyPressed()
     else if (keyCode == UP)
     {
       currentPiece.tryRotate();
-    }
+    } 
     else if(keyCode == DOWN)
     {
       currentPiece.posy++;
@@ -153,7 +157,7 @@ void tick()
   else
   {
   gravityCount++;
-  if(gravityCount >= gravityTime)
+  if(gravityCount >= gravities[getLevel()-1])
   {
     gravityCount = 0;
     currentPiece.posy++;
