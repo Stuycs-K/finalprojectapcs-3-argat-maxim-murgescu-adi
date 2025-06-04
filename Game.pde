@@ -8,7 +8,7 @@ public int gravityTime = 30;
 public int gravityCount = 0;
 
 // MAKE SURE TO ADD: keystrokes to jump levels
-public int score = 54500;
+public int score = 0;
 public int[] levels = {2500, 6000, 11000, 19000, 28000, 40000, 55000, 72000, 91000, 113000, 137000, 165000, 200000, 250000, 325000, 450000, 550000, 800000};
 
 public int[] gravities = {40, 35, 31, 28, 24, 21, 19, 17, 15, 13, 12, 11, 10, 9, 8, 7, 6, 5};
@@ -113,6 +113,26 @@ void keyPressed()
       
     }
   }
+    // jump to level x
+  else if (key == '1'){
+    score = 2500;
+  }
+  else if (key == '2'){
+    score = 6000;
+  }
+  else if (key == '3'){
+    score = 11000;
+  }
+  else if (key == '4'){
+    score = 19000;
+  }
+  else if (key == '5'){
+    score = 28000;
+  }
+  else if (key == '+'){
+    score = levels[getLevel()];
+  }
+  // final else statement to start game
   else
   {
     if(key == ' ')
