@@ -75,7 +75,7 @@ void keyPressed()
     else if (keyCode == UP)
     {
       currentPiece.tryRotate();
-    }
+    } 
     else if(keyCode == DOWN)
     {
       currentPiece.posy++;

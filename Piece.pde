@@ -46,7 +46,7 @@ public class Piece
         }
         else if(x + posx >= 10)
         {
-           xoff_vel += 4;
+           xoff_vel += 3;
            return true;
         }
         if(map[y + posy][x + posx] != 0)
@@ -61,6 +61,8 @@ public class Piece
   public int[][] shape()
   {
     whichrot = whichrot % 4;
+    if(whichrot < 0)
+      whichrot+=4;
     return shapes[whichrot];
   }
   
