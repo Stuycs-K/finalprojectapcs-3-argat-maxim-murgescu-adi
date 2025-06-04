@@ -114,23 +114,20 @@ void keyPressed()
     }
   }
     // jump to level x
-  else if (key == '1'){
+  else if (key == '2'){
     score = 2500;
   }
-  else if (key == '2'){
+  else if (key == '3'){
     score = 6000;
   }
-  else if (key == '3'){
+  else if (key == '4'){
     score = 11000;
   }
-  else if (key == '4'){
+  else if (key == '5'){
     score = 19000;
   }
-  else if (key == '5'){
-    score = 28000;
-  }
   else if (key == '+'){
-    score = levels[getLevel()];
+    score = levels[getLevel()-1];
   }
   // final else statement to start game
   else
@@ -201,7 +198,7 @@ int getLevel()
   int l = 1;
   for(int i = 0; i < levels.length; i++)
   {
-    if(score > levels[i])
+    if(score >= levels[i])
       l++;
     else
       return l;
