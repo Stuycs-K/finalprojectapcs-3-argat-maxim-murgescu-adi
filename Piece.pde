@@ -72,7 +72,41 @@ public class Piece
   {
     whichrot++;
     if(checkCollision())
+    {
+      // basic rotation failed
       whichrot--;
+      for(int kick = 0; kick < 4; kick++)
+      {
+        int temp_x = posx;
+        int temp_y = posy;
+        
+        posx += getkicks()[kick*2];
+        posy += getkicks()[kick*2 + 1];
+        whichrot++;
+        
+        if(checkCollision())
+        {
+          // cannot rotate
+          whichrot--;
+          posx = temp_x;
+          posy = temp_y;
+        }
+        else
+        {
+          break;
+        }
+      }
+    }
+  }
+  
+  public int[] getkicks() // avoids index errors
+  {
+    if(whichrot < 0)
+      whichrot+=4;
+    else if(whichrot > 3)
+      whichrot-=4;
+    
+    return kicktable[whichrot];
   }
   
   public void applyPiece()
@@ -190,7 +224,13 @@ void makeOffsets()
     {1, 0, -2, 0, 1, -2, -2, 1}
   };
   
-  
+  for(int i = 0; i < 7; i++)
+  {
+    if(i == 5)
+      pieces[i].kicktable = mostTable;
+    else
+      pieces[i].kicktable = iTable;
+  }
 }
 
 
