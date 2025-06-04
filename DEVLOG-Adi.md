@@ -21,3 +21,6 @@ Sick, but tested updated version basically MVP.
 
 ### 2025-06-03 - Levels, gravity of pieces
 Added feature of game speeding up with different levels, continued testing.
+
+### 2025-06-04 - UI for levels
+Added features that allow the user to jump straight to levels 1 through 5 and then also cycle through all levels. Testing, minor adjustments to design of screen shaking.
