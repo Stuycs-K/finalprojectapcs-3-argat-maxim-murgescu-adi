@@ -12,6 +12,7 @@ public class Piece
 {
   public int col = 1; // 1 is o yellow
   public int[][][] shapes;
+  public int[][] kicktable;
   public int whichrot = 0;
   public int posx = 3;
   public int posy = -1;
@@ -24,6 +25,7 @@ public class Piece
   public Piece(Piece original) // creates a clone of the piece, this one is moved / manipulated
   {
     shapes = original.shapes;
+    kicktable = original.kicktable;
   }
   
   
@@ -167,6 +169,30 @@ void makeShapes()
   int[][] rot4Z = {{0, 7, 0},{7, 7, 0},{7, 0, 0}};
   pieces[6] = new Piece("Z", new int[][][]{rot1Z, rot2Z, rot3Z, rot4Z}); 
 }
+
+void makeOffsets()
+{
+  // j, l, s, t, o, and z table: 2d arr
+  // this table works with an array of 4 rotations: 0->1, 1->2, 2->3, 3->0
+  // each rotation contains 4 tests, with 8 x / y coords 'interlaced'
+  
+  int[][] mostTable = new int[][]{
+    {-1, 0, -1, 1, 0, -2, -1, -2},
+    {1, 0, 1, -1, 0, 2, 1, 2},
+    {1, 0, 1, 1, 0, -2, 1, -2},
+    {-1, 0, -1, -1, 0, 2, -1, 2}
+  };
+  
+  int[][] iTable = new int[][]{
+    {-2, 0, 1, 0, -2, -1, 1, 2},
+    {-1, 0, 2, 0, -1, 2, 2, -1},
+    {2, 0, -1, 0, 2, 1, -1, -2},
+    {1, 0, -2, 0, 1, -2, -2, 1}
+  };
+  
+  
+}
+
 
 Piece[] newBag()
 {
