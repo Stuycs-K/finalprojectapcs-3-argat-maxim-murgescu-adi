@@ -8,10 +8,10 @@ public int gravityTime = 30;
 public int gravityCount = 0;
 
 // MAKE SURE TO ADD: keystrokes to jump levels
-public int score = 54500;
+public int score = 0;
 public int[] levels = {2500, 6000, 11000, 19000, 28000, 40000, 55000, 72000, 91000, 113000, 137000, 165000, 200000, 250000, 325000, 450000, 550000, 800000};
 
-public int[] gravities = {40, 35, 31, 28, 24, 21, 19, 17, 15, 13, 12, 11, 10, 9, 8, 7, 6, 5};
+public int[] gravities = {40, 35, 31, 28, 24, 21, 19, 17, 15, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4};
 boolean canHold = true;
 
 public int gameStatus = 0; // 0 - before first piece, 1 - normal, 2 - after losing
@@ -21,7 +21,9 @@ void setup()
   colorMode(RGB, 255, 255, 255);
   size(800, 850);
   makeShapes();
+  makeOffsets();
   //pieces = new Piece[]{jpiece, lpiece, spiece, zpiece, tpiece, opiece, ipiece};
+  currBag = newBag(); // avoids index errors
 }
 
 void draw()
@@ -113,6 +115,23 @@ void keyPressed()
       
     }
   }
+    // jump to level x
+  else if (key == '2'){
+    score = 2500;
+  }
+  else if (key == '3'){
+    score = 6000;
+  }
+  else if (key == '4'){
+    score = 11000;
+  }
+  else if (key == '5'){
+    score = 19000;
+  }
+  else if (key == '+'){
+    score = levels[getLevel()-1];
+  }
+  // final else statement to start game
   else
   {
     if(key == ' ')
@@ -181,7 +200,7 @@ int getLevel()
   int l = 1;
   for(int i = 0; i < levels.length; i++)
   {
-    if(score > levels[i])
+    if(score >= levels[i])
       l++;
     else
       return l;

@@ -1,6 +1,7 @@
 color[] colors = new color[]{color(50, 50, 50), color(20, 20, 225), color(244, 140, 6), color(157, 78, 221), color(255, 221, 0), color(69, 221, 240), color(171, 225, 79), color(239, 35, 60)};
 
 boolean doDebug = true;
+boolean showNext = true;
 void drawMap()
 {
   for(int y = 0; y < 20; y++)
@@ -36,25 +37,38 @@ void drawUI()
   {
     int[][] shape = holdPiece.shape();  
   
-    for(int y = 0; y < shape.length; y++)
-    {
-      for(int x = 0; x < shape[y].length; x++)
-      {
-        if(shape[y][x] == 0)
-          continue;
-        fill(200);
-        rect(650 + (x) * 20 + xoffset, 50 + (y) * 20 + yoffset, 20, 20);
-        fill(colors[shape[y][x]]);
-        rect(651 + (x) * 20 + xoffset, 51 + (y) * 20 + yoffset, 19, 19);
-      }
-    }
+    drawPieceSmall(shape,650, 50);
   }
   if(doDebug)
   {
   fill(200, 200, 20);
   text("Grace Period: " + gracePeriod, 500 + xoffset, 280 + yoffset);
   }
+  
+  if(showNext)
+  {
+    fill(255);
+    textSize(28);
+    text("NEXT:", 525 + xoffset, 375 + yoffset);
+    drawPieceSmall(peekPiece().shape(), 650, 350);
+  }
 }
+void drawPieceSmall(int[][] shape, int xpos, int ypos)
+{
+  for(int y = 0; y < shape.length; y++)
+    {
+      for(int x = 0; x < shape[y].length; x++)
+      {
+        if(shape[y][x] == 0)
+          continue;
+        fill(200);
+        rect(xpos + (x) * 20 + xoffset, ypos + (y) * 20 + yoffset, 20, 20);
+        fill(colors[shape[y][x]]);
+        rect(xpos + 1 + (x) * 20 + xoffset, ypos + 1 + (y) * 20 + yoffset, 19, 19);
+      }
+    }
+}
+
 
 void drawPiece(Piece piece)
 {
