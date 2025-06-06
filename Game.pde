@@ -11,7 +11,7 @@ public int gravityCount = 0;
 public int score = 0;
 public int[] levels = {2500, 6000, 11000, 19000, 28000, 40000, 55000, 72000, 91000, 113000, 137000, 165000, 200000, 250000, 325000, 450000, 550000, 800000};
 
-public int[] gravities = {40, 35, 31, 28, 24, 21, 19, 17, 15, 13, 12, 11, 10, 9, 8, 7, 6, 5};
+public int[] gravities = {40, 35, 31, 28, 24, 21, 19, 17, 15, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4};
 boolean canHold = true;
 
 public int gameStatus = 0; // 0 - before first piece, 1 - normal, 2 - after losing
@@ -21,7 +21,9 @@ void setup()
   colorMode(RGB, 255, 255, 255);
   size(800, 850);
   makeShapes();
+  makeOffsets();
   //pieces = new Piece[]{jpiece, lpiece, spiece, zpiece, tpiece, opiece, ipiece};
+  currBag = newBag(); // avoids index errors
 }
 
 void draw()

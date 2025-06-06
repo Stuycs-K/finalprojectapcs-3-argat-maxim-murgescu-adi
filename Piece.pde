@@ -12,6 +12,7 @@ public class Piece
 {
   public int col = 1; // 1 is o yellow
   public int[][][] shapes;
+  public int[][] kicktable;
   public int whichrot = 0;
   public int posx = 3;
   public int posy = -1;
@@ -24,6 +25,7 @@ public class Piece
   public Piece(Piece original) // creates a clone of the piece, this one is moved / manipulated
   {
     shapes = original.shapes;
+    kicktable = original.kicktable;
   }
   
   
@@ -70,7 +72,41 @@ public class Piece
   {
     whichrot++;
     if(checkCollision())
+    {
+      // basic rotation failed
       whichrot--;
+      for(int kick = 0; kick < 4; kick++)
+      {
+        int temp_x = posx;
+        int temp_y = posy;
+        
+        posx += getkicks()[kick*2];
+        posy -= getkicks()[kick*2 + 1];
+        whichrot++;
+        
+        if(checkCollision())
+        {
+          // cannot rotate
+          whichrot--;
+          posx = temp_x;
+          posy = temp_y;
+        }
+        else
+        {
+          break;
+        }
+      }
+    }
+  }
+  
+  public int[] getkicks() // avoids index errors
+  {
+    if(whichrot < 0)
+      whichrot+=4;
+    else if(whichrot > 3)
+      whichrot-=4;
+    
+    return kicktable[whichrot];
   }
   
   public void applyPiece()
@@ -168,6 +204,46 @@ void makeShapes()
   pieces[6] = new Piece("Z", new int[][][]{rot1Z, rot2Z, rot3Z, rot4Z}); 
 }
 
+void makeOffsets()
+{
+  // j, l, s, t, o, and z table: 2d arr
+  // this table works with an array of 4 rotations: 0->1, 1->2, 2->3, 3->0
+  // each rotation contains 4 tests, with 8 x / y coords 'interlaced'
+  
+  
+  /*
+  int[][] mostTable = new int[][]{
+    {-1, 0, -1, 1, 0, -2, -1, -2},
+    {1, 0, 1, -1, 0, 2, 1, 2},
+    {1, 0, 1, 1, 0, -2, 1, -2},
+    {-1, 0, -1, -1, 0, 2, -1, 2}
+  };
+  */
+  int[][] iTable = new int[][]{
+    {-2, 0, 1, 0, -2, -1, 1, 2},
+    {-1, 0, 2, 0, -1, 2, 2, -1},
+    {2, 0, -1, 0, 2, 1, -1, -2},
+    {1, 0, -2, 0, 1, -2, -2, 1}
+  };
+  
+  int[] allTable = new int[]{1, 0, -1, 0, 0, 1, 0, -1};
+  
+  for(int i = 0; i < 7; i++)
+  {
+    /*
+    if(i == 5)
+      pieces[i].kicktable = mostTable;
+    else
+      pieces[i].kicktable = iTable;
+    */
+    if(i!=4)
+      pieces[i].kicktable = new int[][]{allTable, allTable, allTable, allTable};
+    
+  }
+  pieces[4].kicktable = iTable;
+}
+
+
 Piece[] newBag()
 {
   Piece[] bag = new Piece[7];
@@ -214,6 +290,8 @@ Piece dealPiece() // returns the next piece, removes it out of the bag, makes a 
 Piece peekPiece() // this is infrastructure to allow the player to see the next piece. I don't yet know if we want this.
 {
   if(bagindex < 6)
-    return currBag[bagindex + 1];
+    return currBag[bagindex];
+  if(nextBag == null)
+    nextBag = newBag();
   return nextBag[0];
 }
