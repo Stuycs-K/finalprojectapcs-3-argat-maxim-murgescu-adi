@@ -23,6 +23,7 @@ void setup()
   makeShapes();
   makeOffsets();
   //pieces = new Piece[]{jpiece, lpiece, spiece, zpiece, tpiece, opiece, ipiece};
+  currBag = newBag(); // avoids index errors
 }
 
 void draw()

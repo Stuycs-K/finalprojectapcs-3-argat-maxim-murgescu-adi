@@ -81,7 +81,7 @@ public class Piece
         int temp_y = posy;
         
         posx += getkicks()[kick*2];
-        posy += getkicks()[kick*2 + 1];
+        posy -= getkicks()[kick*2 + 1];
         whichrot++;
         
         if(checkCollision())
@@ -210,13 +210,15 @@ void makeOffsets()
   // this table works with an array of 4 rotations: 0->1, 1->2, 2->3, 3->0
   // each rotation contains 4 tests, with 8 x / y coords 'interlaced'
   
+  
+  /*
   int[][] mostTable = new int[][]{
     {-1, 0, -1, 1, 0, -2, -1, -2},
     {1, 0, 1, -1, 0, 2, 1, 2},
     {1, 0, 1, 1, 0, -2, 1, -2},
     {-1, 0, -1, -1, 0, 2, -1, 2}
   };
-  
+  */
   int[][] iTable = new int[][]{
     {-2, 0, 1, 0, -2, -1, 1, 2},
     {-1, 0, 2, 0, -1, 2, 2, -1},
@@ -224,13 +226,21 @@ void makeOffsets()
     {1, 0, -2, 0, 1, -2, -2, 1}
   };
   
+  int[] allTable = new int[]{1, 0, -1, 0, 0, 1, 0, -1};
+  
   for(int i = 0; i < 7; i++)
   {
+    /*
     if(i == 5)
       pieces[i].kicktable = mostTable;
     else
       pieces[i].kicktable = iTable;
+    */
+    if(i!=4)
+      pieces[i].kicktable = new int[][]{allTable, allTable, allTable, allTable};
+    
   }
+  pieces[4].kicktable = iTable;
 }
 
 
@@ -280,6 +290,8 @@ Piece dealPiece() // returns the next piece, removes it out of the bag, makes a 
 Piece peekPiece() // this is infrastructure to allow the player to see the next piece. I don't yet know if we want this.
 {
   if(bagindex < 6)
-    return currBag[bagindex + 1];
+    return currBag[bagindex];
+  if(nextBag == null)
+    nextBag = newBag();
   return nextBag[0];
 }
