@@ -126,7 +126,7 @@ void keyPressed()
   else if (key == '5'){
     score = 19000;
   }
-  else if (key == '+'){
+  else if (key == '='){
     score = levels[getLevel()-1];
   }
   // final else statement to start game
