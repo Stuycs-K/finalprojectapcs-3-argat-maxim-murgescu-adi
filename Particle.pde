@@ -23,7 +23,7 @@ public class Particle
   }
   public void render()
   { 
-    stroke(2);
+    stroke(0);
     fill(colors[col]);
     ellipse(pos.x, pos.y, size, size);
   }
