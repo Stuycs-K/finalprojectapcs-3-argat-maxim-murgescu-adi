@@ -27,3 +27,6 @@ Added features that allow the user to jump straight to levels 2 through 5 and th
 
 ### 2025-06-06 - Levels, UI description, started touches to Display
 Polished the interface and tested the levels feature, tested full game with all new features. Worked on the readME, UI description since the previous draft had been written before some features beyond MVP were added. And started working on a control panel, to help the user that will go under the scoreboard (display class).
+
+### 2025-06-06 - ReadME, final touches before video presentation, demo
+Expanded README controls section to cover new features, and did a full play-through to prep for the demo video and then recorded presentation.
