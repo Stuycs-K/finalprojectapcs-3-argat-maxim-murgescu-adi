@@ -18,6 +18,7 @@ public int gameStatus = 0; // 0 - before first piece, 1 - normal, 2 - after losi
 
 void setup()
 {
+  noStroke();
   colorMode(RGB, 255, 255, 255);
   size(800, 850);
   makeShapes();
@@ -32,6 +33,7 @@ void draw()
   displayTick();
   drawMap();
   drawUI();
+  simParts();
   
   // do logic for key repeating here, later
   
