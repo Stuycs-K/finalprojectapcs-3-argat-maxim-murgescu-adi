@@ -18,16 +18,18 @@ Beyond the MVP we added:
 # Intended usage:
 
 How the project will be used (user interface):
-Update this with specific keys used to:
-Space bar to toggle first piece and start playing. Once a piece is already falling on the board, pressing space again sends the piece as far down as it can go immediately, in its current orientation.
 
-Left/right arrows to move the piece left/right.
+Controls to play the game.
 
-Up arrow to rotate the piece (cycle through to find your desired rotation).
+| Key | Action |
+|-----|--------|
+| `SPACE` | Start the first piece. While a piece is already on the board (active), `SPACE` performs a **hard drop** that instantly locks it. |
+| `← / →` | Move the piece left / right. |
+| `↑` | Rotate the piece 90 degrees (cycles through orientations). |
+| Hold `↓` | **Soft drop** – move the piece downward faster than gravity, but controlled. |
+| `SHIFT` | Hold the current piece and swap it with the piece in the hold box (once per turn) which you can see as the 'next' piece. |
+| `2`, `3`, `4`, `5` | Jump directly to Levels 2–5. |
+| `=` | Increase the score up to the next threshold, advances one level. |
 
-Down arrow to move the piece downward faster than the gravity (this and using space to push the piece down will increase your score more than waiting for gravity).
-
- Shift to hold the current piece and toggle the next piece - can only do this once per turn.
-
- Use the numbered keys 2 through 5 to jump to those levels or use the '=' key to jump up one level.
+Tip: Soft drops and hard drops award additional points compared to letting gravity do the work.
   
