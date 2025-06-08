@@ -23,4 +23,7 @@ Sick, but tested updated version basically MVP.
 Added feature of game speeding up with different levels, continued testing.
 
 ### 2025-06-04 - UI for levels
-Added features that allow the user to jump straight to levels 1 through 5 and then also cycle through all levels. Testing, minor adjustments to design of screen shaking.
+Added features that allow the user to jump straight to levels 2 through 5 and then also cycle through all levels. Testing, minor adjustments to design of screen shaking.
+
+### 2025-06-06 - Levels, UI description, started touches to Display
+Polished the interface and tested the levels feature, tested full game with all new features. Worked on the readME, UI description since the previous draft had been written before some features beyond MVP were added. And started working on a control panel, to help the user that will go under the scoreboard (display class).
