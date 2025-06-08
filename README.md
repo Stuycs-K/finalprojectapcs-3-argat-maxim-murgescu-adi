@@ -12,9 +12,14 @@ Update with features we may/aim to add beyond MVP: The ability to increase the s
 How the project will be used (user interface):
 Update this with specific keys used to:
 Space bar to toggle first piece and start playing. Once a piece is already falling on the board, pressing space again sends the piece as far down as it can go immediately, in its current orientation.
+
 Left/right arrows to move the piece left/right.
+
 Up arrow to rotate the piece (cycle through to find your desired rotation).
+
 Down arrow to move the piece downward faster than the gravity (this and using space to push the piece down will increase your score more than waiting for gravity).
 
-start game, move piece left/right, change piece, rotate piece, 
+ Shift to hold the current piece and toggle the next piece - can only do this once per turn.
+
+ Use the numbered keys 2 through 5 to jump to those levels or use the '=' key to jump up one level.
   

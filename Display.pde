@@ -4,6 +4,7 @@ boolean doDebug = false;
 boolean showNext = true;
 void drawMap()
 {
+  noStroke();
   for(int y = 0; y < 20; y++)
   {
     for(int x = 0; x < 10; x++)
