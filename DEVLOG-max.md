@@ -9,6 +9,7 @@ Around an hour and a half between school and home, made it so that pieces fall, 
 ### 2025-05-29 - Rotating
 ~1 hour between school / home, made 3d array system for piece rotation, rotating when up arrow pressed, and rearranged scripts for better organization
 
+<<<<<<< HEAD
 ### 2025-05-30 - Hard / Soft Drops
 Added hard and soft dropping for pieces to make testing the game less slow, and fixed issues that came from this. Also made each piece be the color that it is supposed to be.
 

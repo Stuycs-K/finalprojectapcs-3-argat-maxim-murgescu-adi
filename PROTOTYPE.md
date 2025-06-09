@@ -38,18 +38,28 @@ Phase 4 (Extra):
 
 # Technical Details:
 
-(CHANGE THIS!!!!!)
-
-A description of your technical design. This should include: 
-   
-How you will be using the topics covered in class in the project.
+The whole game runs in Processing, so every frame we redraw the board and update the logic.  
+The board itself is just a 10 × 20 `int` array holding color codes for each block.  
+Every tetromino lives inside a `Piece` object, and each piece keeps its four rotations in a little 3-D array.  
+`keyPressed()` does all the input work—arrows move and rotate, `SPACE` hard-drops, and `SHIFT` swaps with the hold box.  
+Gravity is nothing fancy: a frame counter that gets shorter whenever the score pushes us to the next level.  
+When a piece locks, we loop through each row; if it’s full, we clear it and slide everything above it down.  
+On a clear we also spawn a few `Particle` objects so you get a quick burst of color that fades out over time.
      
 # Project Design
 
-UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
+* **Game (main sketch)** – owns the board, score, level, and the main `draw()` loop.  
+* **Piece** – keeps all rotations, position, collision checks, hard-drop / soft-drop, and the hold flag.  
+* **Particle** – tiny circle with its own position, velocity, and size that shrinks away each frame.  
+* **Display helpers** – a few functions that draw the board, the active piece, the hold box, and the next-piece preview.
+
+Everything plugs into `Game`: it updates pieces, checks for line clears, and spawns particles when needed.  
+See UML diagrams.
     
 # Intended pacing:
 
-How you are breaking down the project and who is responsible for which parts.
-
-A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
+- **May 19–22** — Kick-off prototype: set up the Processing window, create the 10 × 20 board array, and sketch the basic UML on paper.  
+- **May 27** — Write the first README draft and rebuild the UML diagram in an online editor.  
+- **May 29** — Code the full rotation system and verify that every tetromino behaves correctly.  
+- **June 03–05** — Finish all gameplay extras: score-based levels with faster gravity, level-skip keys, hold box, and particle clear effects.  
+- **June 06** — Final polish—tidy the HUD layout, update the README, and record the demo video.
