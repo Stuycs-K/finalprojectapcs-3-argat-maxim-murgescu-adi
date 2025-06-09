@@ -32,4 +32,5 @@ Controls to play the game:
 | `=` | Increase the score up to the next threshold, advances one level. |
 
 Tip: Soft drops and hard drops award additional points compared to letting gravity do the work.
-  
+
+Link to video: https://drive.google.com/file/d/1wqqAueQKQpOn954g0KcdzBI49WEFHp0K/view?usp=drive_link  
