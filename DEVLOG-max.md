@@ -27,3 +27,6 @@ Coded a different kickback table for the I piece because it is 4 wide, started c
 
 ### 2025-06-08 - Final Touches, Editing the video.
 Finished adding particles to the game, also slightly changed the way the graphics look by modifying the stroke width at different times. This creates a small white accent on the active piece but not on the dropped map. Around an hour of actual work time.
+
+### Partner Declaration
+I believe this document accurately reflects the contributions of my teamate.
