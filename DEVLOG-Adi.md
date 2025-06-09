@@ -30,3 +30,5 @@ Polished the interface and tested the levels feature, tested full game with all 
 
 ### 2025-06-06 - ReadME, final touches before video presentation, demo
 Expanded README controls section to cover new features, and did a full play-through to prep for the demo video and then recorded presentation.
+
+I believe this document accurately reflects Adi's contributions. -Max
